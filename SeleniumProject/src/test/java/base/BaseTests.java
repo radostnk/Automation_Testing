@@ -5,10 +5,18 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import pages.HomePage;
+
+import java.util.List;
 
 public class BaseTests {
+
+    protected HomePage homePage;
     private WebDriver driver;
 
+    @BeforeClass
     public void setUp() {
         System.setProperty("webdriver.chrome.driver", "resources/chromedriver.exe");
         driver = new ChromeDriver();
@@ -16,16 +24,11 @@ public class BaseTests {
 
         //driver.manage().window().setSize(new Dimension(375, 812));
         driver.manage().window().maximize();
-
-        WebElement inputsLink = driver.findElement(By.linkText("Inputs"));
-        inputsLink.click();
-
-        System.out.println(driver.getTitle());
-        driver.quit();
+        homePage = new HomePage(driver);
     }
 
-    public static void main(String[] args) {
-        BaseTests test = new BaseTests();
-        test.setUp();
+    @AfterClass
+    public void tearDown() {
+        driver.quit();
     }
 }
