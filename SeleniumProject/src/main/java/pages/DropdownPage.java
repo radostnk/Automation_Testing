@@ -8,13 +8,12 @@ import org.openqa.selenium.support.ui.Select;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class DropdownPage {
+public class DropdownPage extends BasePage {
 
     private final By DROPDOWN = By.id("dropdown");
-    private WebDriver driver;
 
     public DropdownPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
     public void selectFromDropdown(String option) {
@@ -22,6 +21,8 @@ public class DropdownPage {
     }
 
     public List<String> getSelectedOption() {
+
+        //In order to interact with a  dropdown, we need a new dependency: selenium-support
         List<WebElement> allSelectedOptions = this.findDropdown().getAllSelectedOptions();
         return allSelectedOptions.stream().map(WebElement::getText).collect(Collectors.toList());
     }
