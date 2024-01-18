@@ -2,43 +2,46 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 public class HomePage extends BasePage {
-
-    private final String FORM_AUTHENTICATION_TEXT = "Form Authentication";
-    private final String DROPDOWN_TEXT = "Dropdown";
-    private final String HOVERS_TEXT = "Hovers";
-    private final String KEY_PRESSES = "Key Presses";
-    private final String HORIZONTAL_SLIDER = "Horizontal Slider";
 
     public HomePage(WebDriver driver) {
         super(driver);
     }
 
     public LoginPage clickFormAuthentication() {
-        this.clickLink(FORM_AUTHENTICATION_TEXT);
+        this.clickLink("Form Authentication");
         return new LoginPage(driver);
     }
 
     public DropdownPage clickDropdown() {
-        this.clickLink(DROPDOWN_TEXT);
+        this.clickLink("Dropdown");
         return new DropdownPage(driver);
     }
 
     public HoversPage clickHovers() {
-        this.clickLink(HOVERS_TEXT);
+        this.clickLink("Hovers");
         return new HoversPage(driver);
     }
 
     public KeyPressesPage clickKeyPresses() {
-        this.clickLink(KEY_PRESSES);
+        this.clickLink("Key Presses");
         return new KeyPressesPage(driver);
     }
 
     public HorizontalSliderPage clickHorizontalSlider() {
-        this.clickLink(HORIZONTAL_SLIDER);
+        this.clickLink("Horizontal Slider");
         return new HorizontalSliderPage(driver);
+    }
+
+    public JSAlertsPage clickJSAlerts() {
+        this.clickLink("JavaScript Alerts");
+        return new JSAlertsPage(driver);
+    }
+
+    public FileUploadPage clickFileUpload() {
+        this.clickLink("File Upload");
+        return new FileUploadPage(driver);
     }
 
     private void clickLink(String link) {

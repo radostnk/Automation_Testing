@@ -28,4 +28,8 @@ public class HorizontalSliderPage extends BasePage {
     public int getResult() {
         return Integer.parseInt(driver.findElement(RESULT).getText());
     }
+
+    public void resetSlider() {
+        this.slideLeft(20);
+    }
 }
