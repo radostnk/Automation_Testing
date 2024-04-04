@@ -44,6 +44,11 @@ public class HomePage extends BasePage {
         return new FileUploadPage(driver);
     }
 
+    public DynamicLoadingPage clickDynamicLoadingPage() {
+        this.clickLink("Dynamic Loading");
+        return new DynamicLoadingPage(driver);
+    }
+
     private void clickLink(String link) {
         driver.findElement(By.linkText(link)).click();
     }
