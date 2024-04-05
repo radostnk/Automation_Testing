@@ -44,6 +44,16 @@ public class HomePage extends BasePage {
         return new FileUploadPage(driver);
     }
 
+    public ContextMenuPage clickContextMenuPage() {
+        this.clickLink("Context Menu");
+        return new ContextMenuPage(driver);
+    }
+
+    public WysiwygEditorPage clickWYSIWYGEditorPage() {
+        this.clickLink("WYSIWYG Editor");
+        return new WysiwygEditorPage(driver);
+    }
+
     private void clickLink(String link) {
         driver.findElement(By.linkText(link)).click();
     }
