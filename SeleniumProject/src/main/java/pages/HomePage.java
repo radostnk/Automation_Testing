@@ -44,6 +44,11 @@ public class HomePage extends BasePage {
         return new FileUploadPage(driver);
     }
 
+    public DynamicLoadingPage clickDynamicLoadingPage() {
+        this.clickLink("Dynamic Loading");
+        return new DynamicLoadingPage(driver);
+    }
+
     public ContextMenuPage clickContextMenuPage() {
         this.clickLink("Context Menu");
         return new ContextMenuPage(driver);
