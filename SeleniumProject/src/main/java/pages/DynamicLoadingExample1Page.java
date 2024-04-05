@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.time.InstantSource;
 
+
 public class DynamicLoadingExample1Page extends BasePage {
 
     private final By START_BUTTON = By.cssSelector("#start button");
@@ -26,7 +27,7 @@ public class DynamicLoadingExample1Page extends BasePage {
 
 //        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
-        FluentWait wait = new FluentWait(driver)
+        FluentWait<WebDriver> wait = new FluentWait<>(driver)
                 .withTimeout(Duration.ofSeconds(5))
                 .pollingEvery(Duration.ofSeconds(1))
                 .ignoring(NoSuchElementException.class);

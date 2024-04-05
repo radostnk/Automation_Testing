@@ -4,9 +4,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class DynamicLoadingPage extends BasePage {
-
-    private final By EXAMPLE_1 = By.linkText("Example 1: Element on page that is hidden");
-    private final By EXAMPLE_2 = By.linkText("Example 2: Element on page that is hidden");
+    private final String XPATH_FORMAT = "//a[contains(text(),'%d')]";
+    private final By EXAMPLE_1 = By.xpath(String.format(XPATH_FORMAT, 1));
+    private final By EXAMPLE_2 = By.xpath(String.format(XPATH_FORMAT, 2));
     public DynamicLoadingPage(WebDriver driver) {
         super(driver);
     }
