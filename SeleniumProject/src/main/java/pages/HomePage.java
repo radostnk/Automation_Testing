@@ -64,6 +64,11 @@ public class HomePage extends BasePage {
         return new FramesPage(driver);
     }
 
+    public LargeDeepDOMPage clickLargeDeepDOMPage() {
+        this.clickLink("Large & Deep DOM");
+        return new LargeDeepDOMPage(driver);
+    }
+
     private void clickLink(String link) {
         driver.findElement(By.linkText(link)).click();
     }
